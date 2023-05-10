@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMPLE NOTE BOOK</title>
+</head>
+<body>
+    <section class="container mx-auto py-24">
+     <h1 class="text-4xl font-bold">The NoteBook</h1>
+     <p class="text-xl py-5">Write your notes here...</p>
+
+     <div class="list-div">
+        <ol id="ol-list" class="list-decimal text-black">
+            <li class="list">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure, necessitatibus.</li>
+            <li class="list">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure, necessitatibus.</li>
+            <li class="list">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure, necessitatibus.</li>
+        </ol>
+        <textarea cols="60" rows="6" class="border-2 my-10" id="text-area"></textarea>
+        <button class="border border-black py-3 px-4 font-bold rounded-lg" id="add-btn">AddNote</button>
+     </div>
+    </section>
+
+
+    <script>
+        document.getElementById('add-btn').addEventListener('click',function(){
+            const textarea=document.getElementById('text-area');
+            let textareaValue=textarea.value;
+            const olList=document.getElementById('ol-list');
+            const creatEl = document.createElement('li');
+            creatEl.classList.add('list');
+            creatEl.innerText=textareaValue;
+            olList.appendChild(creatEl);
+            textarea.value=''
+            
+        })
+        //delegate
+    document.getElementById('ol-list').addEventListener('click',function(event){
+        event.target.parentNode.removeChild(event.target)
+    })
+        // const lists=document.getElementsByClassName('list')
+        // for(const list of lists){
+        //     list.addEventListener('click',function(event){
+        //         event.target.parentNode.removeChild(event.target)
+        //     })
+        // }
+
+    </script>
+
+      <script src="https://cdn.tailwindcss.com"></script>
+</body>
+</html>
